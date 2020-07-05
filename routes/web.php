@@ -11,8 +11,23 @@
 |
 */
 
+use App\Http\Controllers\ArtikelController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('layouts.master');
+Route::get('/', function() {
+    return view('erd');
 });
+
+Route::get('/artikel', 'ArtikelController@index');
+
+Route::get('/artikel/create', 'ArtikelController@create');
+
+Route::post('/artikel', 'ArtikelController@store');
+
+Route::get('/artikel/{id}', 'ArtikelController@show');
+
+Route::get('/artikel/{id}/edit', 'ArtikelController@edit');
+
+Route::put('/artikel/{id}', 'ArtikelController@update');
+
+Route::delete('/artikel/{id}', 'ArtikelController@destroy');
